@@ -1,1 +1,44 @@
 site_name: Watson Libraries
+site_author: Brian Innes
+repo_name: "watson-libraries"
+repo_url: https://github.com/binnes/watson-libraries
+docs_dir: docs
+site_dir: public
+edit_uri: edit/main/docs
+theme:
+  name: material
+  language: en
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    - navigation.instant
+    - naviagation.sections
+    - navigation.tracking
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.top
+    - search.suggest
+    - search.highlight
+use_directory_urls: true
+plugins:
+  - search:
+      lang: en
+  - minify:
+      minify_html: true
+markdown_extensions:
+  - attr_list
+  - admonition
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.tabbed
+  - pymdownx.details
+nav:
+  - Home: index.md
+  - Setup: setup.md
+  - Natural Language Processing: nlp.md
+  - Speech:
+    - Local use: stt-local.md
+    - Kubernetes deployment: stt-kube.md
