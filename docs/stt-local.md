@@ -1,12 +1,14 @@
 # Speech to Text Local
 
+<!--- cSpell:ignore Convertio -->
+
 This page describes how to run Speech to Text on your local system using Docker or Podman.
 
 The [product documentation](https://www.ibm.com/docs/en/watson-libraries?topic=rc-run-docker-run){: target=_blank} will provide more details and additional capabilities not shown in this example.
 
 ## Access to images
 
-To run this example you need to have access to hte IBM Watson Libraries for Embed container images.  These are available on the IBM Container Registry, but you need an [entitlement key](https://myibm.ibm.com/products-services/containerlibrary){: target=_blank}
+To run this example you need to have access to the IBM Watson Libraries for Embed container images.  These are available on the IBM Container Registry, but you need an [entitlement key](https://myibm.ibm.com/products-services/containerlibrary){: target=_blank}
 
 For the code in this repo I use a local mirror, hosted in a [Project Quay](https://www.projectquay.io){: target=_blank} repository.
 
@@ -86,6 +88,7 @@ To submit a request to the container you need an audio file.  There is one in th
     Work out process to create audio file on Linux and Windows systems
 
 To test the speech to text container the curl utility can be used to submit requests:
+
 
 ```shell
 curl "http://localhost:1080/speech-to-text/api/v1/recognize" --header "Content-Type: audio/wav" --data-binary @test.wav

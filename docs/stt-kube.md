@@ -1,13 +1,21 @@
 # Speech to Text Kubernetes
 
+<!--- cSpell:ignore Convertio -->
+
 This page covers how to get the Speech to Text service running on OpenShift.
 
 The files relating to this example can be found in the repository [here](https://github.com/binnes/watson-libraries/tree/main/speech/stt_kube){: target=_blank}
 
 ## Deploy to OpenShift
 
-1. Navigate to where the files from this repo have been cloned to your local machine and change to the speechi/stt_kube directory
-2. Apply all the manifest files to your cluster
+1. Navigate to where the files from this repo have been cloned to your local machine and change to the speech/stt_kube directory
+2. Create a new project on the cluster
+
+    ```shell
+    oc new-project demo-stt
+    ```
+
+3. Apply all the manifest files to your cluster
 
     ```shell
     oc apply -f <directory containing manifest files>

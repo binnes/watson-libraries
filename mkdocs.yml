@@ -44,3 +44,6 @@ nav:
     - Speech to Text:
       - Local use: stt-local.md
       - Kubernetes deployment: stt-kube.md
+    - Text to Speech:
+      - Local use: tts-local.md
+      - Kubernetes deployment: tts-kube.md

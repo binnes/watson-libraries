@@ -1,0 +1,15 @@
+[filtering]
+checkextern=1
+ignore=
+  localhost:8000$
+  ^https://github.com/binnes/watson-libraries
+  public/404.html$
+  public/sitemap.xml$
+  .js$
+  .php$
+  .gz$
+  ^https://fonts.gstatic.com
+  js/rs-plugin/assets/transparent.png$
+[checking]
+robotstxt=0
+localwebroot=./

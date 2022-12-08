@@ -6,7 +6,7 @@ The [product documentation](https://www.ibm.com/docs/en/watson-libraries?topic=r
 
 ## Access to images
 
-To run this example you need to have access to hte IBM Watson Libraries for Embed container images.  These are available on the IBM Container Registry, but you need an [entitlement key](https://myibm.ibm.com/products-services/containerlibrary){: target=_blank}
+To run this example you need to have access to the IBM Watson Libraries for Embed container images.  These are available on the IBM Container Registry, but you need an [entitlement key](https://myibm.ibm.com/products-services/containerlibrary){: target=_blank}
 
 For the code in this repo I use a local mirror, hosted in a [Project Quay](https://www.projectquay.io){: target=_blank} repository.
 

@@ -6,7 +6,7 @@ The files relating to this example can be found in the repository [here](https:/
 
 ## Deploy to OpenShift
 
-1. Navigate to where the files from this repo have been cloned to your local machine and change to the speechi/stt_kube directory
+1. Navigate to where the files from this repo have been cloned to your local machine and change to the speech/tts_kube directory
 2. Create a new project on the cluster
 
     ```shell
