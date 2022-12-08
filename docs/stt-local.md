@@ -41,7 +41,7 @@ To build the container image run the command:
 === "Podman"
 
     ```shell
-    podman build ---tls-verify=false -f Containerfile . -t stt-standalone
+    podman build --tls-verify=false -f Containerfile . -t stt-standalone
     ```
 
 You should store the container image in a repository if you want to use it on a Kubernetes platform or make it available to other developers to run locally

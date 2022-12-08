@@ -40,5 +40,7 @@ nav:
   - Setup: setup.md
   - Natural Language Processing: nlp.md
   - Speech:
-    - Local use: stt-local.md
-    - Kubernetes deployment: stt-kube.md
+    - Overview: speech.md
+    - Speech to Text:
+      - Local use: stt-local.md
+      - Kubernetes deployment: stt-kube.md

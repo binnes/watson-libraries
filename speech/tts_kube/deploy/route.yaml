@@ -1,0 +1,15 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: tts-embed
+spec:
+  to:
+    kind: Service
+    name: ibm-watson-tts-embed
+    weight: 100
+  port:
+    targetPort: runtime
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

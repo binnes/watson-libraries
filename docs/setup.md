@@ -1,5 +1,16 @@
 # Setup
 
+## Tools needed
+
+The examples in this repositories require the following:
+
+-   a container tool, such as Docker or Podman
+-   optionally a container management tool, such as Skopeo
+-   access to a Kubernetes or OpenShift cluster.
+
+!!!Info
+    The examples in this repo have been written using a local, bare metal OpenShift cluster, but the examples could be adapted to a Kubernetes cluster or a cluster hosted on a cloud provider
+
 ## Local bare metal cluster
 
 1. install OCP
@@ -59,6 +70,8 @@ spec:
 ```
 
 ## Setting up a local mirror
+
+Some of the image sizes of the IBM Watson Libraries for Embed containers are extremely large, running into multiple megabytes, so it can be advantageous to work against a local mirror.
 
 The example configuration installs Quay on the demo cluster.  This can be used to hold local mirrors of the IBM Watson for Embed container images.  
 

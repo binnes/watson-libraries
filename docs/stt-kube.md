@@ -27,10 +27,3 @@ To test the speech to text container the curl utility can be used to submit requ
 ```shell
 curl -k "https://stt-embed-demo-stt.apps.ocp.lab.home/speech-to-text/api/v1/recognize" --header "Content-Type: audio/wav" --data-binary @test.wav
 ```
-
-## Secure communication
-
-The speech to text runtime container doesn't support TLS termination, only http.  The OpenShift Route enforces TLS termination, so all traffic coming into the cluster will be protected by TLS, but the traffic from the cluster ingress to the service will be unencrypted, which isn't ideal.  To solve this the watson-stt-haproxy container can be run in the same pod as the stt runtime.  The service and route can then be modified to sent traffic to the watson-stt-haproxy, which will then use *localhost* within the pod to send the traffic from the proxy into the stt runtime.
-
-!!!Todo
-    Add the **watson-stt-haproxy** to the example deployment, service and route manifest files to enable internet -> pod fully encrypted traffic

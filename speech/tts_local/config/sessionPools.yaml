@@ -1,0 +1,6 @@
+defaultPolicy: DefaultPolicy
+sessionPoolPolicies:
+  PreWarmingPolicy:
+  # UPDATE BELOW WITH MODELS USED
+    - name: en-US_MichaelV3Voice
+    - name: en-GB_JamesV3Voice
