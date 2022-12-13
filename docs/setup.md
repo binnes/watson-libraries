@@ -11,6 +11,24 @@ The examples in this repositories require the following:
 !!!Info
     The examples in this repo have been written using a local, bare metal OpenShift cluster, but the examples could be adapted to a Kubernetes cluster or a cluster hosted on a cloud provider
 
+!!!Warning
+    Make sure your Docker or Podman environment has sufficient resources.  A single CPU with 2MB of memory will not be sufficient, suggest using at least 4 CPUs with 8096 MB of memory
+
+!!! Info
+    Using an Apple Silicon apple mac needs the container runtime to be able to run amd64 images, as the Watson Libraries are only published using amd64 architecture.  Ensure that no podman machine exists then setup podman like:
+
+    ```shell
+    podman machine init --cpus 6 -m 8096 --rootful --now
+    podman machine ssh
+    ```
+    
+    ```shell
+    # run the following inside the podman shell
+    sudo -i
+    rpm-ostree install qemu-user-static
+    systemctl reboot
+    ```
+
 ## Local bare metal cluster
 
 1. install OCP

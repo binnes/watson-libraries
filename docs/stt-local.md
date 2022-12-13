@@ -52,7 +52,7 @@ You should store the container image in a repository if you want to use it on a 
 
     ``` shell
     docker tag stt-standalone lab-registry-quay-openshift-operators.apps.ocp.lab.home/brian/stt-standalone:0.0.1
-    docker push --tls-verify=false lab-registry-quay-openshift-operators.apps.ocp.lab.home/brian/stt-standalone:0.0.1
+    docker push lab-registry-quay-openshift-operators.apps.ocp.lab.home/brian/stt-standalone:0.0.1
     ```
 
 === "Podman"

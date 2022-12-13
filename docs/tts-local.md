@@ -50,7 +50,7 @@ You should store the container image in a repository if you want to use it on a 
 
     ``` shell
     docker tag tts-standalone lab-registry-quay-openshift-operators.apps.ocp.lab.home/brian/tts-standalone:0.0.1
-    docker push --tls-verify=false lab-registry-quay-openshift-operators.apps.ocp.lab.home/brian/tts-standalone:0.0.1
+    docker push lab-registry-quay-openshift-operators.apps.ocp.lab.home/brian/tts-standalone:0.0.1
     ```
 
 === "Podman"
@@ -60,20 +60,20 @@ You should store the container image in a repository if you want to use it on a 
     podman push --tls-verify=false lab-registry-quay-openshift-operators.apps.ocp.lab.home/brian/tts-standalone:0.0.1
     ```
 
-## Running the container
+## Running the container locally
 
 The container can be run on your local system.  The following commands assume you have the tool on your local system (either built or pulled from a repository)
 
 === "Docker"
 
     ```shell
-    docker run --rm -it --env ACCEPT_LICENSE=true --publish 1080:1080 tts-standalone
+    docker run --rm -it --env ACCEPT_LICENSE=true --publish 1080:1080 nlp-standalone
     ```
 
 === "Podman"
 
     ```shell
-    podman run --rm -it --env ACCEPT_LICENSE=true --publish 1080:1080 tts-standalone
+    podman run --rm -it --env ACCEPT_LICENSE=true --publish 1080:1080 nlp-standalone
     ```
 
 ## Submitting requests to the container

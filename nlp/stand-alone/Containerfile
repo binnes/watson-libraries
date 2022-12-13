@@ -1,0 +1,4 @@
+ARG TAG=1.0
+FROM lab-registry-quay-openshift-operators.apps.ocp.lab.home/watson-libs/watson-nlp-runtime:${TAG}
+ENV LOCAL_MODELS_DIR=/app/models
+COPY models /app/models
