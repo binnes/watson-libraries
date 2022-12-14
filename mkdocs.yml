@@ -41,6 +41,7 @@ nav:
   - Natural Language Processing: 
     - Overview: nlp.md
     - Stand alone container: nlp-combined-image.md
+    - External volume: nlp-external-volume.md
   - Speech:
     - Overview: speech.md
     - Speech to Text:
