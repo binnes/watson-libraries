@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: watson-nlp-container 
+spec: 
+  selector: 
+    matchLabels: 
+      app: watson-nlp-container 
+  replicas: 1 
+  template: 
+    metadata: 
+      labels: 
+        app: watson-nlp-container 
+    spec: 
+      initContainers:
+      - name: english-syntax-model
+        image: lab-registry-quay-openshift-operators.apps.ocp.lab.home/watson-libs/watson-nlp_syntax_izumo_lang_en_stock:1.0.7
+        volumeMounts:
+        - name: model-directory
+          mountPath: "/app/models"
+        env:
+        - name: ACCEPT_LICENSE
+          value: 'true'
+      - name: english-tone-model
+        image: lab-registry-quay-openshift-operators.apps.ocp.lab.home/watson-libs/watson-nlp_classification_ensemble-workflow_lang_en_tone-stock:1.0.7
+        volumeMounts:
+        - name: model-directory
+          mountPath: "/app/models"
+        env:
+        - name: ACCEPT_LICENSE
+          value: 'true'
+      containers: 
+      - name: watson-nlp-container 
+        image: lab-registry-quay-openshift-operators.apps.ocp.lab.home/watson-libs/watson-nlp-runtime:1.0.20
+        env:
+        - name: ACCEPT_LICENSE
+          value: "true"
+        - name: LOCAL_MODELS_DIR
+          value: "/app/models"
+        resources: 
+          requests: 
+            memory: "4Gi" 
+            cpu: "1000m" 
+          limits: 
+            memory: "8Gi" 
+            cpu: "2000m"
+        ports: 
+        - containerPort: 8085 
+        volumeMounts:
+        - name: model-directory
+          mountPath: "/app/models"
+      imagePullSecrets:
+      - name: ibm-entitlement-key
+      volumes:
+      - name: model-directory
+        emptyDir: {}

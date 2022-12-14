@@ -1,0 +1,15 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: watson-nlp-container
+spec:
+  to:
+    kind: Service
+    name: watson-nlp-container
+    weight: 100
+  port:
+    targetPort: runtime
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
