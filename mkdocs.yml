@@ -38,7 +38,9 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Setup: setup.md
-  - Natural Language Processing: nlp.md
+  - Natural Language Processing: 
+    - Overview: nlp.md
+    - Stand alone container: nlp-combined-image.md
   - Speech:
     - Overview: speech.md
     - Speech to Text:
