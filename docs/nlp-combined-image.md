@@ -103,3 +103,33 @@ The container can be run on your local system.  The following commands assume yo
    -H "grpc-metadata-mm-model-id: syntax_izumo_lang_en_stock" \
    -d '{ "raw_document": { "text": "This is a test sentence" }, "parsers": ["token"] }'
 ```
+
+## Running the container on IBM Code Engine
+
+This assumes you have an account on IBM cloud, have an instance of Container Registry in your account, have the ibmcloud CLI installed and the Container Registry and Code Engine plugins installed
+
+A full tutorial can be found [here](https://github.com/ibm-build-lab/Watson-NLP/blob/main/MLOps/Deploy-to-Code-Engine/README.md){: target=_blank}
+
+1. login to the IBM Cloud on the command line `ibmcloud login (--sso)`
+2. set the region for the Container Registry service on IBM Cloud `ibmcloud cr region-set` then select the appropriate region and note the name of the registry (e.g. uk-south uses registry **uk.icr.io**)
+3. login to the Container Registry `ibmcloud cr login --client podman`
+4. tag the stand alone image for the IBM Cloud registry (substitute for your region registry address) `podman tag nlp-standalone:latest uk.icr.io/bi-uk/nlp-standalone:latest`
+5. push the image to the registry `podman push uk.icr.io/bi-uk/nlp-standalone:latest`
+6. set the correct resource group to run the application in `ibmcloud target -g bi-devops`
+7. create a container engine project `ibmcloud ce project create --name bi-nlp-standalone`
+8. set the new project as the current context `ibmcloud ce project select --name bi-nlp-standalone`
+9. use the [IBM Cloud web UI](https://cloud.ibm.com/codeengine/overview){: target=_blank} to deploy the code engine app, specifying the image in the IBM Container Registry you pushed in step 5.
+10. create the environment variable **ACCEPT_LICENSE** with the value **true**
+
+Once the Code Engine application is deployed you can verify it is running with `ibmcloud ce app list`
+
+Test the application is responding to requests using curl (*you can get your application endpoint from the Domain mappings tab in the web UI*)
+
+```shell
+curl -s -X POST "https://nlp-standalone-application-4a.wgry41hvzqj.eu-gb.codeengine.appdomain.cloud/v1/watson.runtime.nlp.v1/NlpService/SyntaxPredict" \
+  -H "accept: application/json" \
+  -H "grpc-metadata-mm-model-id: syntax_izumo_lang_en_stock" \
+  -H "content-type: application/json" \
+  -d "{ \"rawDocument\": { \"text\": \"This is a test.\" }, \"parsers\": [ \"TOKEN\" ]}" \
+  | jq -r .
+```
