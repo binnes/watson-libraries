@@ -21,4 +21,5 @@ This project contains a number of examples showing:
 
 - [building a combined container with runtime and model(s)](nlp-combined-image.md)
 - [building an external volume containing unarchived models that can be mapped into the runtime container](nlp-external-volume.md)
+- [deploying a model using KServe modelmesh](nlp-modelmesh.md)
 - packaging a custom model (exported from Watson Studio) to use with the runtime
