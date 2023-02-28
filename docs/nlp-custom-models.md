@@ -17,6 +17,6 @@ ENV LOCAL_MODELS_DIR=/app/models
 COPY models /app/models
 ```
 
-Once built the container can now be used as outlined in the [combined model](nlp=combined-image.md) section
+Once built the container can now be used as outlined in the [combined model](nlp-combined-image.md) section
 
 You can also use the [packaging tool](https://github.com/IBM/ibm-watson-embed-model-builder/tree/main/watson_embed_model_packager){: target=_blank} to create the containers 
